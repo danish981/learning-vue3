@@ -27,3 +27,10 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+### What I'm doing now ?
+
+- Add a json file of random data
+- read the json and populate its content in programs component
+- 
