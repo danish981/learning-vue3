@@ -1,18 +1,18 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import TodoHeaver from './components/TodoHeaver.vue';
+import TodoHeader from './components/TodoHeader.vue';
 
 </script>
 
 <template>
-  <TodoHeaver />
+  <TodoHeader />
   <RouterView />
 </template>
 
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
   font-family: "Rubik, sans-serif";
@@ -25,7 +25,5 @@ import TodoHeaver from './components/TodoHeaver.vue';
   max-width: 1100px;
   margin: 0 auto;
 }
-
-
 
 </style>
