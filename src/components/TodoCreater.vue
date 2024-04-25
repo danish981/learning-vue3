@@ -1,18 +1,26 @@
 <script setup>
-import { ref } from "vue"
+import { reactive, ref } from "vue"
 
-const todo = ref("testing") ;
+
+// testing the how ref works, it will be string 
+// const todo = ref("testing") ;
+
+// testing how reactive works, it will be an object
+const todoState = reactive({
+    todo : 'testing input'
+})
+
 
 </script>
 
 
 <template>
     <div class="input-wrap">
-        <input type="text" v-model="todo">
+        <input type="text" v-model="todoState.todo">
         <button>Create</button>
     </div>
 
-    <p>{{ todo }}</p>
+    <p>{{ todoState.todo }}</p>
 
 </template>
 
