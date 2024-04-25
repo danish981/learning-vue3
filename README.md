@@ -34,3 +34,7 @@ npm run build
 - Add a json file of random data
 - read the json and populate its content in programs component
 - 
+
+
+
+[video at current time](https://youtu.be/KTFH4P8unUQ?t=2316)

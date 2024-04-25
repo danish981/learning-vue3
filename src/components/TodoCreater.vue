@@ -1,27 +1,23 @@
 <script setup>
-import { reactive, ref } from "vue"
+import { ref, defineEmits } from "vue";
 
+const emit = defineEmits(["create-todo"]);
 
-// testing the how ref works, it will be string 
-// const todo = ref("testing") ;
+const todo = ref("");
 
-// testing how reactive works, it will be an object
-const todoState = reactive({
-    todo : 'testing input'
-})
-
+const createTodo = () => {
+  // in dome, we can access the reactive value by directly writing the variable name, but in script we need to use .value
+  emit("create-todo", todo.value);
+};
 
 </script>
 
 
 <template>
-    <div class="input-wrap">
-        <input type="text" v-model="todoState.todo">
-        <button>Create</button>
-    </div>
-
-    <p>{{ todoState.todo }}</p>
-
+  <div class="input-wrap">
+    <input type="text" v-model="todo" />
+    <button @click="createTodo">Create</button>
+  </div>
 </template>
 
 
