@@ -1,23 +1,46 @@
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, reactive } from "vue";
 
 const emit = defineEmits(["create-todo"]);
 
-const todo = ref("");
+const todoState = reactive({
+  todo: "",
+  invalid: null,
+  errorMsg: null,
+});
 
 const createTodo = () => {
   // in dome, we can access the reactive value by directly writing the variable name, but in script we need to use .value
-  emit("create-todo", todo.value);
-};
 
+  todoState.invalid = null;
+  if (todoState.todo !== "") {
+    emit("create-todo", todoState.todo);
+    todoState.todo = "";
+    return;
+  }
+  todoState.invalid = true;
+  todoState.errorMsg = 'Todo Value cannot be empty'
+
+
+};
 </script>
 
 
 <template>
   <div class="input-wrap">
-    <input type="text" v-model="todo" />
+    <input type="text" v-model="todoState.todo" />
     <button @click="createTodo">Create</button>
   </div>
+
+  <!-- ? both the v-if and v-show work the same but here are the differences -->
+
+  <!-- will not render the element to the dom -->
+  <p class="errorMsg" v-if="todoState.invalid">{{ todoState.errorMsg }}</p>
+  
+  <!-- will render the element to the dom but make it invisible by display: none -->
+  <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p>
+
+  
 </template>
 
 
