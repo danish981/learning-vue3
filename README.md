@@ -35,10 +35,12 @@ npm run build
 ### What I'm doing ?
 - when we have an invalid todo, we will have a dynamic class attached to the input element 
 - learning and doing code for slots , what the slots are
-- slots done
+- slots done, putting icons from iconify lib and customizing it 
+- showing the todo items in stacked order and displaying the items todos into the textbox upon condition using v-if and v-else
+- 
 
 
 
-### Video at current time
+### Youtube Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=3671
+https://youtu.be/KTFH4P8unUQ?t=4690

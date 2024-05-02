@@ -22,10 +22,10 @@ const props = defineProps({
     <input type="checkbox" :checked="todo.isCompleted" />
 
     <div class="todo">
-      <input type="text" :value="todo.todo" />
-      <!-- <span>
+      <input type="text" v-if="todo.isEditing" :value="todo.todo" />
+      <span v-else>
         {{ todo.todo }}
-      </span> -->
+      </span>
     </div>
 
     <div class="todo-actions">

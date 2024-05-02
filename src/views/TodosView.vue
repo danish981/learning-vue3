@@ -40,6 +40,27 @@ main {
     margin-bottom: 16px;
     text-align: center;
   }
+
+
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 24px;
+    gap: 20px;
+  }
+
+  .todos-msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+
+
+
 }
 </style>
 
