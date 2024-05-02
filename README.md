@@ -35,10 +35,10 @@ npm run build
 ### What I'm doing ?
 - when we have an invalid todo, we will have a dynamic class attached to the input element 
 - learning and doing code for slots , what the slots are
-- 
+- slots done
 
 
 
 ### Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=3443
+https://youtu.be/KTFH4P8unUQ?t=3671

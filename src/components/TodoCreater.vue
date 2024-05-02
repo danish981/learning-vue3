@@ -6,12 +6,11 @@ const emit = defineEmits(["create-todo"]);
 
 const todoState = reactive({
   todo: "", // the todo string, which is the value of the input
-  invalid: null,  // will be true if the input value is empty
+  invalid: null, // will be true if the input value is empty
   errorMsg: null, // will be true if the input value is empty
 });
 
 const createTodo = () => {
-
   // in DOM, we can access the reactive value by directly writing the variable name, but in script we need to use .value
 
   todoState.invalid = null; // can say NULL or false, but i have not checked it with false value
@@ -22,14 +21,13 @@ const createTodo = () => {
   }
 
   todoState.invalid = true;
-  todoState.errorMsg = 'Todo Value cannot be empty'
+  todoState.errorMsg = "Todo Value cannot be empty";
 };
 </script>
 
 
 <template>
-
-  <div class="input-wrap" :class="{ 'input-err' : todoState.invalid }">
+  <div class="input-wrap" :class="{ 'input-err': todoState.invalid }">
     <input type="text" v-model="todoState.todo" />
     <TodoButton @click="createTodo" />
   </div>
@@ -38,14 +36,12 @@ const createTodo = () => {
 
   <!-- will not render the element to the DOM -->
   <!-- <p class="errorMsg" v-if="todoState.invalid">{{ todoState.errorMsg }}</p> -->
-  
+
   <!-- will render the element to the DOM but make it invisible by display: none -->
   <!-- we are gonna usen the v-show because the we are gonna click the create button multiple times -->
   <!-- it will just hide-n-show the element from the DOM  -->
-  
-  <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p>
 
-  
+  <p class="errorMsg" v-show="todoState.invalid">{{ todoState.errorMsg }}</p>
 </template>
 
 
@@ -54,7 +50,6 @@ const createTodo = () => {
   display: flex;
   transition: 250ms ease;
   border: 2px solid #41b080;
-
 
   &.input-err {
     border-color: #ff0000;
@@ -81,12 +76,10 @@ const createTodo = () => {
   }
 }
 
-
 .errorMsg {
   margin-top: 6px;
-  font-size : 12px;
+  font-size: 12px;
   text-align: center;
-  color : red;
+  color: red;
 }
-
 </style>
