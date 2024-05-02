@@ -1,15 +1,14 @@
 <script setup>
 import TodoCreater from "@/components/TodoCreater.vue";
 import { ref } from "vue";
-import { uid } from "uid";
+import { uid } from "uid";  // to make the ids unique for each todo item 
 
 const todoList = ref([])
-
 
 const createTodo = (todo) => {
   todoList.value.push({
     id : uid(),  
-    todo, 
+    todo,   // the field and the property are the same, so we can just use one
     isCompleted : null,
     isEditing : null  
   })
@@ -21,7 +20,10 @@ const createTodo = (todo) => {
 <template>
   <main>
     <h1>Todos application</h1>
+
+    <!-- we are taking the value from the component that was emitted from the TodoCreater and passing it to the createTodo function -->
     <TodoCreater @create-todo="createTodo" />
+    
   </main>
 </template>
 
