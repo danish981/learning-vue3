@@ -10,7 +10,7 @@ const todoState = reactive({
 });
 
 const createTodo = () => {
-  // in dome, we can access the reactive value by directly writing the variable name, but in script we need to use .value
+  // in DOM, we can access the reactive value by directly writing the variable name, but in script we need to use .value
 
   todoState.invalid = null;
   if (todoState.todo !== "") {
@@ -18,15 +18,15 @@ const createTodo = () => {
     todoState.todo = "";
     return;
   }
+
   todoState.invalid = true;
   todoState.errorMsg = 'Todo Value cannot be empty'
-
-
 };
 </script>
 
 
 <template>
+
   <div class="input-wrap">
     <input type="text" v-model="todoState.todo" />
     <button @click="createTodo">Create</button>
@@ -34,11 +34,11 @@ const createTodo = () => {
 
   <!-- ? both the v-if and v-show work the same but here are the differences -->
 
-  <!-- will not render the element to the dom -->
+  <!-- will not render the element to the DOM -->
   <p class="errorMsg" v-if="todoState.invalid">{{ todoState.errorMsg }}</p>
   
-  <!-- will render the element to the dom but make it invisible by display: none -->
-  <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p>
+  <!-- will render the element to the DOM but make it invisible by display: none -->
+  <!-- <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p> -->
 
   
 </template>
