@@ -21,8 +21,7 @@ const props = defineProps({
 
 
 // defined emits that this data will be passed from child component to parent component
-defineEmits(["toggle-complete"]);
-
+defineEmits(["toggle-complete", 'edit-todo', 'update-todo']);
 
 </script>
 
@@ -36,7 +35,7 @@ defineEmits(["toggle-complete"]);
 
     <!-- looping through each todo item from the parent component -->
     <div class="todo">
-      <input type="text" v-if="todo.isEditing" :value="todo.todo" />
+      <input type="text" v-if="todo.isEditing" :value="todo.todo" @input="$emit('update-todo', $event.target.value, index )" />
 
       <!-- we are going to add a strike-through to this span element if the todo item is completed -->
       <span v-else :class="{ 'completed-todo': todo.isCompleted }">
@@ -53,6 +52,7 @@ defineEmits(["toggle-complete"]);
         class="icon"
         color="#41b080"
         width="22"
+        @click="$emit('edit-todo', index)"
       />
       <Icon
         v-else
@@ -60,6 +60,7 @@ defineEmits(["toggle-complete"]);
         class="icon"
         color="#41b080"
         width="22"
+        @click="$emit('edit-todo', index)"
       />
       <Icon icon="ph:trash" class="icon" color="#f95e5e" width="22" />
     </div>

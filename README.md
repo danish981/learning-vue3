@@ -31,6 +31,12 @@ npm run build
 
 <!-- comments in the code make our code read better and understand better -->
 
+### What I think should be added in the application
+- when the todo is marked completed (strike through), don't show the pencil icon
+- 
+
+
+
 
 ### What I'm doing ?
 - when we have an invalid todo, we will have a dynamic class attached to the input element 
@@ -39,9 +45,10 @@ npm run build
 - showing the todo items in stacked order and displaying the items todos into the textbox upon condition using v-if and v-else
 - displaying the nice message if there is no todo item in the list
 - getting the error inside the vscode (not in the project) that v-for needs the v-bind with the key (which is the right convention for looping through element )
-- 
+- updating the todo item is completed
+- started working on deleting a todo item ....
 
 
 ### Youtube Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=5255
+https://youtu.be/KTFH4P8unUQ?t=5640
