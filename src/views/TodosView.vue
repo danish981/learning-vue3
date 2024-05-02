@@ -1,11 +1,26 @@
 <script setup>
 import TodoCreater from "@/components/TodoCreater.vue";
+
 import { Icon } from "@iconify/vue";
 import { ref } from "vue";
 import { uid } from "uid"; // to make the ids unique for each todo item
 import TodoItem from "@/components/TodoItem.vue";
 
 const todoList = ref([]);
+
+const fetchTodoListFromLocalStorage = () => {
+  const storedTodoList = localStorage.getItem("todoList");
+  if (storedTodoList) {
+    todoList.value = JSON.parse(storedTodoList);
+  }
+};
+
+// everytime on the page laods, this function will be called and it will fetch the todo list
+fetchTodoListFromLocalStorage();
+
+const setTodoListToLocalStorage = () => {
+  localStorage.setItem("todoList", JSON.stringify(todoList.value));
+};
 
 const createTodo = (todo) => {
   todoList.value.push({
@@ -14,30 +29,30 @@ const createTodo = (todo) => {
     isCompleted: null,
     isEditing: null,
   });
+
+  setTodoListToLocalStorage();
 };
 
 const toggleTodoComplete = (index) => {
   // index is the todo position
   todoList.value[index].isCompleted = !todoList.value[index].isCompleted;
+  setTodoListToLocalStorage();
 };
 
 const toggleEditTodo = (index) => {
-  // index is the todo position
   todoList.value[index].isEditing = !todoList.value[index].isEditing;
+  setTodoListToLocalStorage();
 };
 
 const updateTodo = (updatedTodoValue, index) => {
   todoList.value[index].todo = updatedTodoValue;
+  setTodoListToLocalStorage();
 };
 
 const deleteTodo = (index) => {
-  todoList.value = todoList.value.filter(
-    (todo) => todo.id !== index
-  );
+  todoList.value = todoList.value.filter((todo) => todo.id !== index);
+  setTodoListToLocalStorage();
 };
-
-
-
 </script>
 
 <template>
