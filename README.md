@@ -40,7 +40,9 @@ npm run build
 - deleting the all todo items at once
 - instead of clicking the button, we should make the enter button functional
 - prevent adding duplicated todo element
-- 
+- after adding a new todo item, we lost focus from the text field from to write todo 
+- we can show the id of each todo item that is unique or count on hover too to uniquely identify
+- show count at the top of the todo list
 
 
 

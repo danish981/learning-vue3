@@ -53,6 +53,7 @@ const deleteTodo = (index) => {
       <!-- ! so for that same purpose, we are using the index which is the key that is being passed to the TodoItem component -->
       <TodoItem
         v-for="(todo, index) in todoList"
+        v-bind:key="todo.id"
         :index="index"
         :todo="todo"
         @toggle-complete="toggleTodoComplete"
