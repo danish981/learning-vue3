@@ -15,6 +15,13 @@ const createTodo = (todo) => {
     isEditing: null,
   });
 };
+
+
+const toggleTodoComplete = (index) => { // index is the todo position
+  todoList.value[index].isCompleted = !todoList.value[index].isCompleted;
+};
+
+
 </script>
 
 <template>
@@ -26,14 +33,18 @@ const createTodo = (todo) => {
 
     <!-- the todo list stacked items added into the reactive element array -->
     <ul class="todo-list" v-if="todoList.length > 0">
-      <TodoItem v-for="todo in todoList" :key="todo.id" :todo="todo" />
+
+      <!-- ! vscode vue extension is showing the error that custom elements in iteration require 'v-bind:key' directive -->
+      <!-- ! so for that same purpose, we are using the index which is the key that is being passed to the TodoItem component -->
+      <TodoItem v-for="(todo, index) in todoList" :index="index" :todo="todo" @toggle-complete="toggleTodoComplete"/>
     </ul>
 
     <!-- the message being displayed if there is no todo item in the todo list -->
     <div class="todos-msg" v-else>
       <Icon icon="noto-v1:sad-but-relieved-face" width="22" />
-      <span>You have no todos to complete !! Add one!</span>
+      <span>You have no todo's to complete !! Add one!</span>
     </div>
+
   </main>
 </template>
 

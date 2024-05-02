@@ -38,9 +38,10 @@ npm run build
 - slots done, putting icons from iconify lib and customizing it 
 - showing the todo items in stacked order and displaying the items todos into the textbox upon condition using v-if and v-else
 - displaying the nice message if there is no todo item in the list
-
+- getting the error inside the vscode (not in the project) that v-for needs the v-bind with the key (which is the right convention for looping through element )
+- 
 
 
 ### Youtube Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=4841
+https://youtu.be/KTFH4P8unUQ?t=5255

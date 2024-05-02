@@ -13,27 +13,54 @@ const props = defineProps({
     required: true,
     // we can also define the default value for the props
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 });
+
+
+// defined emits that this data will be passed from child component to parent component
+defineEmits(["toggle-complete"]);
+
+
 </script>
 
 
 <template>
   <li>
-    
-    <input type="checkbox" :checked="todo.isCompleted" />
+
+    <!-- the checkbox to see if a particular todo item is completed or not -->
+    <input type="checkbox" :checked="todo.isCompleted" @input="$emit('toggle-complete', index)" />
 
 
+    <!-- looping through each todo item from the parent component -->
     <div class="todo">
       <input type="text" v-if="todo.isEditing" :value="todo.todo" />
-      <span v-else>
+
+      <!-- we are going to add a strike-through to this span element if the todo item is completed -->
+      <span v-else :class="{ 'completed-todo': todo.isCompleted }">
         {{ todo.todo }}
       </span>
     </div>
 
 
+    <!-- the actions buttons for each todo item -->
     <div class="todo-actions">
-      <Icon v-if="todo.isEditing" icon="ph:check-circle" class="icon" color="#41b080" width="22" />
-      <Icon v-else icon="ph:pencil-fill" class="icon" color="#41b080" width="22" />
+      <Icon
+        v-if="todo.isEditing"
+        icon="ph:check-circle"
+        class="icon"
+        color="#41b080"
+        width="22"
+      />
+      <Icon
+        v-else
+        icon="ph:pencil-fill"
+        class="icon"
+        color="#41b080"
+        width="22"
+      />
       <Icon icon="ph:trash" class="icon" color="#f95e5e" width="22" />
     </div>
 
@@ -55,6 +82,10 @@ li {
     .todo-actions {
       opacity: 1;
     }
+  }
+
+  .completed-todo {
+    text-decoration: line-through;
   }
 
   input[type="checkbox"] {
