@@ -10,7 +10,7 @@ const todoState = reactive({
 });
 
 const createTodo = () => {
-  
+
   // in DOM, we can access the reactive value by directly writing the variable name, but in script we need to use .value
 
   todoState.invalid = null;
