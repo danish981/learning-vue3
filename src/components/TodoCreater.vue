@@ -31,18 +31,7 @@ const createTodo = () => {
 
   <div class="input-wrap" :class="{ 'input-err' : todoState.invalid }">
     <input type="text" v-model="todoState.todo" />
-
-    <!-- <button @click="createTodo">Create</button> -->
-
-    <TodoButton @click="createTodo">
-
-      <!-- we can use the slot to add content to the button -->
-      <!-- if we have multiple slots we can name them, but this fallback slot will be used if there is no named slot -->
-      <!-- if we want to use the default slot, we can just leave the closing tag empty -->
-
-    </TodoButton>
-
-
+    <TodoButton @click="createTodo" />
   </div>
 
   <!-- ? both the v-if and v-show work the same but here are the differences -->
@@ -53,6 +42,7 @@ const createTodo = () => {
   <!-- will render the element to the DOM but make it invisible by display: none -->
   <!-- we are gonna usen the v-show because the we are gonna click the create button multiple times -->
   <!-- it will just hide-n-show the element from the DOM  -->
+  
   <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p>
 
   
