@@ -38,6 +38,8 @@ npm run build
 - optimize the code  (like fixing the v-for with v-bind keys and not using the :index for the custom iterative elements)
 - there should be a little toast message for adding, updating and deleting the todo item
 - deleting the all todo items at once
+- instead of clicking the button, we should make the enter button functional
+- prevent adding duplicated todo element
 - 
 
 
@@ -56,4 +58,4 @@ npm run build
 
 ### Youtube Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=5640
+https://youtu.be/KTFH4P8unUQ?t=5769

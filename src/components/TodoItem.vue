@@ -19,30 +19,34 @@ const props = defineProps({
   },
 });
 
-
 // defined emits that this data will be passed from child component to parent component
-defineEmits(["toggle-complete", 'edit-todo', 'update-todo']);
-
+defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 </script>
 
 
 <template>
   <li>
-
     <!-- the checkbox to see if a particular todo item is completed or not -->
-    <input type="checkbox" :checked="todo.isCompleted" @input="$emit('toggle-complete', index)" />
-
+    <input
+      type="checkbox"
+      :checked="todo.isCompleted"
+      @input="$emit('toggle-complete', index)"
+    />
 
     <!-- looping through each todo item from the parent component -->
     <div class="todo">
-      <input type="text" v-if="todo.isEditing" :value="todo.todo" @input="$emit('update-todo', $event.target.value, index )" />
+      <input
+        type="text"
+        v-if="todo.isEditing"
+        :value="todo.todo"
+        @input="$emit('update-todo', $event.target.value, index)"
+      />
 
       <!-- we are going to add a strike-through to this span element if the todo item is completed -->
       <span v-else :class="{ 'completed-todo': todo.isCompleted }">
         {{ todo.todo }}
       </span>
     </div>
-
 
     <!-- the actions buttons for each todo item -->
     <div class="todo-actions">
@@ -62,9 +66,16 @@ defineEmits(["toggle-complete", 'edit-todo', 'update-todo']);
         width="22"
         @click="$emit('edit-todo', index)"
       />
-      <Icon icon="ph:trash" class="icon" color="#f95e5e" width="22" />
-    </div>
 
+      <!-- why the todo.id is used instead of todo.index -->
+      <Icon
+        icon="ph:trash"
+        class="icon"
+        color="#f95e5e"
+        width="22"
+        @click="$emit('delete-todo', todo.id)"  
+      />
+    </div>
   </li>
 </template>
 

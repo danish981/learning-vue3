@@ -21,14 +21,20 @@ const toggleTodoComplete = (index) => {
   todoList.value[index].isCompleted = !todoList.value[index].isCompleted;
 };
 
-const toggleEditTodo = (index) => { // index is the todo position
+const toggleEditTodo = (index) => {
+  // index is the todo position
   todoList.value[index].isEditing = !todoList.value[index].isEditing;
-}
+};
 
 const updateTodo = (updatedTodoValue, index) => {
   todoList.value[index].todo = updatedTodoValue;
-}
+};
 
+const deleteTodo = (index) => {
+  todoList.value = todoList.value.filter(
+    (todo) => todo.id !== index
+  );
+};
 
 
 
@@ -52,6 +58,7 @@ const updateTodo = (updatedTodoValue, index) => {
         @toggle-complete="toggleTodoComplete"
         @edit-todo="toggleEditTodo"
         @update-todo="updateTodo"
+        @delete-todo="deleteTodo"
       />
     </ul>
 
