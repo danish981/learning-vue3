@@ -13,7 +13,7 @@ const createTodo = () => {
 
   // in DOM, we can access the reactive value by directly writing the variable name, but in script we need to use .value
 
-  todoState.invalid = null;
+  todoState.invalid = null; // can say NULL or false, but i have not checked it with false value
   if (todoState.todo !== "") {
     emit("create-todo", todoState.todo);
     todoState.todo = "";
@@ -28,7 +28,7 @@ const createTodo = () => {
 
 <template>
 
-  <div class="input-wrap">
+  <div class="input-wrap" :class="{ 'input-err' : todoState.invalid }">
     <input type="text" v-model="todoState.todo" />
     <button @click="createTodo">Create</button>
   </div>
@@ -36,10 +36,12 @@ const createTodo = () => {
   <!-- ? both the v-if and v-show work the same but here are the differences -->
 
   <!-- will not render the element to the DOM -->
-  <p class="errorMsg" v-if="todoState.invalid">{{ todoState.errorMsg }}</p>
+  <!-- <p class="errorMsg" v-if="todoState.invalid">{{ todoState.errorMsg }}</p> -->
   
   <!-- will render the element to the DOM but make it invisible by display: none -->
-  <!-- <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p> -->
+  <!-- we are gonna usen the v-show because the we are gonna click the create button multiple times -->
+  <!-- it will just hide-n-show the element from the DOM  -->
+  <p class="errorMsg" v-show="todoState.invalid">{{  todoState.errorMsg }}</p>
 
   
 </template>
@@ -50,6 +52,11 @@ const createTodo = () => {
   display: flex;
   transition: 250ms ease;
   border: 2px solid #41b080;
+
+
+  &.input-err {
+    border-color: #ff0000;
+  }
 
   &:focus-within {
     box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1),
@@ -71,4 +78,13 @@ const createTodo = () => {
     border: none;
   }
 }
+
+
+.errorMsg {
+  margin-top: 6px;
+  font-size : 12px;
+  text-align: center;
+  color : red;
+}
+
 </style>
