@@ -33,6 +33,11 @@ npm run build
 
 ### What I think should be added in the application
 - when the todo is marked completed (strike through), don't show the pencil icon
+- pinia (statement management and the store)
+- the firebase db connection to hold the todo item details
+- optimize the code  (like fixing the v-for with v-bind keys and not using the :index for the custom iterative elements)
+- there should be a little toast message for adding, updating and deleting the todo item
+- deleting the all todo items at once
 - 
 
 
