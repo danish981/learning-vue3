@@ -19,7 +19,9 @@ const props = defineProps({
 
 <template>
   <li>
+    
     <input type="checkbox" :checked="todo.isCompleted" />
+
 
     <div class="todo">
       <input type="text" v-if="todo.isEditing" :value="todo.todo" />
@@ -28,13 +30,16 @@ const props = defineProps({
       </span>
     </div>
 
+
     <div class="todo-actions">
-      <Icon icon="ph:check-circle" class="icon" color="#41b080" width="22" />
-      <Icon icon="ph:pencil-fill" class="icon" color="#41b080" width="22" />
+      <Icon v-if="todo.isEditing" icon="ph:check-circle" class="icon" color="#41b080" width="22" />
+      <Icon v-else icon="ph:pencil-fill" class="icon" color="#41b080" width="22" />
       <Icon icon="ph:trash" class="icon" color="#f95e5e" width="22" />
     </div>
+
   </li>
 </template>
+
 
 <style lang="scss" scoped>
 li {

@@ -37,10 +37,10 @@ npm run build
 - learning and doing code for slots , what the slots are
 - slots done, putting icons from iconify lib and customizing it 
 - showing the todo items in stacked order and displaying the items todos into the textbox upon condition using v-if and v-else
-- 
+- displaying the nice message if there is no todo item in the list
 
 
 
 ### Youtube Video at current time
 
-https://youtu.be/KTFH4P8unUQ?t=4690
+https://youtu.be/KTFH4P8unUQ?t=4841

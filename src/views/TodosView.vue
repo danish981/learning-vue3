@@ -1,5 +1,6 @@
 <script setup>
 import TodoCreater from "@/components/TodoCreater.vue";
+import { Icon } from "@iconify/vue";
 import { ref } from "vue";
 import { uid } from "uid"; // to make the ids unique for each todo item
 import TodoItem from "@/components/TodoItem.vue";
@@ -22,9 +23,17 @@ const createTodo = (todo) => {
 
     <!-- we are taking the value from the component that was emitted from the TodoCreater and passing it to the createTodo function -->
     <TodoCreater @create-todo="createTodo" />
-    <ul class="todo-list">
+
+    <!-- the todo list stacked items added into the reactive element array -->
+    <ul class="todo-list" v-if="todoList.length > 0">
       <TodoItem v-for="todo in todoList" :key="todo.id" :todo="todo" />
     </ul>
+
+    <!-- the message being displayed if there is no todo item in the todo list -->
+    <div class="todos-msg" v-else>
+      <Icon icon="noto-v1:sad-but-relieved-face" width="22" />
+      <span>You have no todos to complete !! Add one!</span>
+    </div>
   </main>
 </template>
 
@@ -41,7 +50,6 @@ main {
     text-align: center;
   }
 
-
   .todo-list {
     display: flex;
     flex-direction: column;
@@ -57,10 +65,6 @@ main {
     gap: 8px;
     margin-top: 24px;
   }
-
-
-
-
 }
 </style>
 
