@@ -1,5 +1,6 @@
 <script setup>
 import { ref, defineEmits, reactive } from "vue";
+import TodoButton from "./TodoButton.vue";
 
 const emit = defineEmits(["create-todo"]);
 
@@ -30,7 +31,18 @@ const createTodo = () => {
 
   <div class="input-wrap" :class="{ 'input-err' : todoState.invalid }">
     <input type="text" v-model="todoState.todo" />
-    <button @click="createTodo">Create</button>
+
+    <!-- <button @click="createTodo">Create</button> -->
+
+    <TodoButton @click="createTodo">
+
+      <!-- we can use the slot to add content to the button -->
+      <!-- if we have multiple slots we can name them, but this fallback slot will be used if there is no named slot -->
+      <!-- if we want to use the default slot, we can just leave the closing tag empty -->
+
+    </TodoButton>
+
+
   </div>
 
   <!-- ? both the v-if and v-show work the same but here are the differences -->
