@@ -4,12 +4,13 @@ import { ref, defineEmits, reactive } from "vue";
 const emit = defineEmits(["create-todo"]);
 
 const todoState = reactive({
-  todo: "",
-  invalid: null,
-  errorMsg: null,
+  todo: "", // the todo string, which is the value of the input
+  invalid: null,  // will be true if the input value is empty
+  errorMsg: null, // will be true if the input value is empty
 });
 
 const createTodo = () => {
+  
   // in DOM, we can access the reactive value by directly writing the variable name, but in script we need to use .value
 
   todoState.invalid = null;

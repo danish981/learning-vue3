@@ -29,12 +29,13 @@ npm run build
 ```
 
 
-### What I'm doing now ?
+<!-- comments in the code make our code read better and understand better -->
 
-- Add a json file of random data
-- read the json and populate its content in programs component
+
+### What I'm doing ?
 - 
 
 
 
-https://youtu.be/KTFH4P8unUQ?t=3262
+### Video at current time
+https://youtu.be/KTFH4P8unUQ?t=2379
