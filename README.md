@@ -43,6 +43,8 @@ npm run build
 - after adding a new todo item, we lost focus from the text field from to write todo 
 - we can show the id of each todo item that is unique or count on hover too to uniquely identify
 - show count at the top of the todo list
+- rename the repo to the todo application and netlfiy target where the app is deployed
+- update the versions and make pull requests and merge them
 
 
 
